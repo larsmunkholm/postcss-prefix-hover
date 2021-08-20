@@ -3,8 +3,11 @@ module.exports = (opts) => {
     const prefix = opts && typeof opts.prefix !== "undefined" ? opts.prefix : ".using-mouse";
 
     function setPrefix (selector) {
-        const thePefix = (useCssModulesGlobal ? ":global(" : "") + prefix + (useCssModulesGlobal ? ")" : "");
-        return thePefix + " " + selector.replace(/,\s+/g, ", " + thePefix + " ");
+        const thePrefix = (useCssModulesGlobal ? ":global(" : "") + prefix + (useCssModulesGlobal ? ")" : "");
+        return selector
+            .split(",")
+            .map((item) => item.indexOf(":hover") > -1 ? item.replace(/^(\s*)/, "$1" + thePrefix + " ") : item)
+            .join(",");
     }
 
     return {
