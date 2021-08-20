@@ -1,6 +1,6 @@
 {
   "name": "postcss-prefix-hover",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PostCSS plugin for prefixing a selection containing :hover",
   "keywords": [
     "postcss",

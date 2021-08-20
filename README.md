@@ -52,3 +52,57 @@ module.exports = {
 |-------------------------|----------------|-------------|
 | **prefix**              | ".using-mouse" | The selector to prefix |
 | **useCssModulesGlobal** | false          | Whether or not the prefix should be wrapped in ":global()" to support CSS Modules |
+
+## Possible issues
+
+Be aware that adding a prefix also adds higher specificity to the CSS selector. This might cause some issues.
+
+**Input causing a possible issue:**
+
+```css
+a:hover {
+    color: black;
+}
+
+a.active {
+    color: red;
+}
+```
+
+**Output** where `a:hover` is more specific than `a.active` causing browsers to prioritize hover over active.
+
+```css
+.using-mouse a:hover {
+    color: black;
+}
+
+a.active {
+    color: red;
+}
+```
+
+**How to fix it:**
+
+```css
+a:hover {
+    color: black;
+}
+
+a.active,
+a.active:hover {
+    color: red;
+}
+```
+
+This will output the following:
+
+```css
+.using-mouse a:hover {
+    color: black;
+}
+
+a.active,
+.using-mouse a.active:hover {
+    color: red;
+}
+```
