@@ -45,3 +45,10 @@ module.exports = {
 ```
 
 [official docs]: https://github.com/postcss/postcss#usage
+
+## Settings
+
+| Option                  | Default        | Description |
+|-------------------------|----------------|-------------|
+| **prefix**              | ".using-mouse" | The selector to prefix |
+| **useCssModulesGlobal** | false          | Whether or not the prefix should be wrapped in ":global()" to support CSS Modules |

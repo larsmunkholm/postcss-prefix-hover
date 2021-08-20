@@ -1,6 +1,6 @@
 {
   "name": "postcss-prefix-hover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS plugin for prefixing a selection containing :hover",
   "keywords": [
     "postcss",
@@ -9,11 +9,12 @@
     "hover"
   ],
   "scripts": {
-    "test": "jest --coverage && eslint ."
+    "test": "jest --coverage && eslint .",
+    "publish": "npx clean-publish"
   },
   "author": "Lars Munkholm <mail@larsersej.dk>",
   "license": "MIT",
-  "repository": "larsmunkholm/postcss-prefix-hover",
+  "repository": "https://github.com/larsmunkholm/postcss-prefix-hover.git",
   "engines": {
     "node": ">=10.0.0"
   },
